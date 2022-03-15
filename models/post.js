@@ -8,7 +8,7 @@ class Post {
     this.ctx = ctx
     this.data = data
   }
-  static all = async ctx => {
+  static all = async (ctx, page) => {
     try {
       const posts = await PostCollection.find().toArray()
       return posts.map(data => new Post(ctx, data))
